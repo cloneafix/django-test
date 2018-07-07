@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Security Groups
+
+Resources:
+    ECSSecurityGroup:
+      Type: 'AWS::EC2::SecurityGroup'
+      Properties:
+        GroupDescription: !Sub ${AWS::StackName} security group
+        Tags:
+          - Key: Name
+            Value: !Sub ${AWS::StackName} ECS security group
+    ECSIngressFromInternet:
+      Type: 'AWS::EC2::SecurityGroupIngress'
+      Properties:
+        GroupId: !Ref ECSSecurityGroup
+        IpProtocol: tcp
+        FromPort: 8000
+        ToPort: 8000
+        CidrIp: 0.0.0.0/0
+
+Outputs:
+  SecurityGroupId:
+    Value: !GetAtt ECSSecurityGroup.GroupId

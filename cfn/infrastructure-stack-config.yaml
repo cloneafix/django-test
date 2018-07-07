@@ -2,6 +2,11 @@ region: eu-central-1
 stacks:
   fbo-ecs:
     template-url: templates/ecs-cluster.yaml
+    parameters:
+      SecurityGroup: '|ref|fbo-security-group.SecurityGroupId'
 
   fbo-task:
     template-url: templates/task.yaml
+
+  fbo-security-group:
+    template-url: templates/sg.yaml
