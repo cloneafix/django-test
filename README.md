@@ -75,16 +75,9 @@ You could provide these values in the cloudformation deployment as parameters to
 
 ### Pipeline creation
 
-Run the following AWS CLI command to create the pipeline:
+Run the following command to create the pipeline:
 
 ```bash
-aws cloudformation create-stack \
-    --stack-name fbo-pipeline \
-    --template-body file://cfn/templates/pipeline.yaml \
-    --capabilities CAPABILITY_NAMED_IAM
-```
-or with cfn-sphere:
-```
 cf sync cfn/pipeline-stack-config.yaml
 ```
 
