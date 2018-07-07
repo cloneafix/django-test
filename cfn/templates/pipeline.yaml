@@ -100,6 +100,12 @@ Resources:
             Name: fbo
             RoleArn: !GetAtt CodePipelineExecutionRole.Arn
             Stages:
+
+               # --------------------------------------------------------------
+               # This will be triggered by github changes.
+               # Fetches the source and build and test the code itself
+               # --------------------------------------------------------------
+
                 - Name: Source
                   Actions:
                     - Name: SourceCodeRepo
@@ -131,6 +137,14 @@ Resources:
                         - Name: SourceCodeAsZip
                       OutputArtifacts:
                         - Name: BuildArtifactAsZip
+
+                # --------------------------------------------------------------
+                # This will deploy in a beta stage and could run integration
+                # tests.
+                # This is still todo and prepared for a cloudformation based
+                # deployment.
+                # --------------------------------------------------------------
+
                 - Name: Beta
                   Actions:
                     - Name: CreateChangeSet
@@ -164,6 +178,15 @@ Resources:
                       OutputArtifacts:
                         - Name: fboBetaChangeSet
                       RunOrder: 2
+
+                # --------------------------------------------------------------
+                # This will deploy in production. But needs manual approval.
+                # For real CI/CD the manual approval should be removed.
+                # Comprehensive automated tests before should cover errors.
+                # This is still todo and prepared for a cloudformation based
+                # deployment.
+                # --------------------------------------------------------------
+
                 - Name: Prod
                   Actions:
                     - Name: DeploymentApproval
