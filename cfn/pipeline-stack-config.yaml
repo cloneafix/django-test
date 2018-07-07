@@ -5,6 +5,8 @@ stacks:
       parameters:
         DockerRepositoryUrl: '|ref|fbo-ecr.RepositoryUrl'
         DockerRepositoryName: '|ref|fbo-ecr.RepositoryName'
+        ECSClusterName: '|ref|fbo-ecs.ClusterId'
+        ECSServiceName: 'fbo'
 
    fbo-ecr:
       template-url: templates/ecr.yaml

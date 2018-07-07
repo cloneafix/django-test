@@ -321,8 +321,8 @@ Resources:
 
 Outputs:
 
-    Cluster:
-        Description: A reference to the ECS cluster
+    ClusterId:
+        Description: Name/Id of ECS cluster
         Value: !Ref ECSCluster
 
     ECSServiceAutoScalingRole:
