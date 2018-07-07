@@ -7,6 +7,9 @@ stacks:
 
   fbo-task:
     template-url: templates/task.yaml
+    parameters:
+      Repository: '|ref|fbo-ecr.RepositoryUrl'
+      ImageName: '|ref|fbo-ecr.RepositoryName'
 
   fbo-security-group:
     template-url: templates/sg.yaml

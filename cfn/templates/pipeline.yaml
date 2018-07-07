@@ -19,9 +19,12 @@ Parameters:
       NoEcho: true
       Default: /service/fbo/github/token
 
-    DockerRepo:
+    DockerRepositoryUrl:
       Type: String
-      Default: 'not set'
+
+    DockerRepositoryName:
+      Type: String
+
 
 Resources:
 
@@ -74,8 +77,11 @@ Resources:
                     Name: BUILD_OUTPUT_BUCKET
                     Value: !Ref BuildArtifactsBucket
                   -
-                    Name: DOCKER_REPO
-                    Value: !Ref DockerRepo
+                    Name: DOCKER_REPOSITORY_URL
+                    Value: !Ref DockerRepositoryUrl
+                  -
+                    Name: DOCKER_REPOSITORY_NAME
+                    Value: !Ref DockerRepositoryName
             Cache:
               Type: S3
               Location: !Sub ${BuildArtifactsBucket}/codebuild-cache

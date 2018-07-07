@@ -1,6 +1,15 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Task definition
 
+Parameters:
+
+  Repository:
+    Description: Repository URL
+    Type: String
+  ImageName:
+    Description: Image Name in repository
+    Type: String
+
 Resources:
   Task:
     Type: "AWS::ECS::TaskDefinition"
@@ -14,7 +23,7 @@ Resources:
               ContainerPort: 8000
               HostPort: 8000
           Memory: 500
-          Image: !Sub '${AWS::AccountId}.dkr.ecr.eu-central-1.amazonaws.com/fbo:latest'
+          Image: !Sub '${Repository}/${ImageName}'
           Essential: true
 
 Outputs:
