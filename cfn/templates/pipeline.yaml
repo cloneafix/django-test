@@ -290,6 +290,14 @@ Resources:
                         Effect: Allow
                         Action: 'ssm:GetParameters'
                         Resource: '*'
+                - PolicyName: ECRAccess
+                  PolicyDocument:
+                    Version: '2012-10-17'
+                    Statement:
+                      -
+                        Effect: Allow
+                        Action: 'ecr:*'
+                        Resource: !Sub 'arn:aws:ecr:::*'  # needs improvement to access only our ECR
 
 
     CloudFormationExecutionRole:
