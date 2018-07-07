@@ -12,7 +12,7 @@ Resources:
     ECSIngressFromInternet:
       Type: 'AWS::EC2::SecurityGroupIngress'
       Properties:
-        GroupId: !Ref ECSSecurityGroup
+        GroupId: !GetAtt ECSSecurityGroup.GroupId
         IpProtocol: tcp
         FromPort: 8000
         ToPort: 8000
