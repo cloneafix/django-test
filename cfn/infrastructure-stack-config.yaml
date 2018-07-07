@@ -1,15 +1,18 @@
 region: eu-central-1
 stacks:
+  # ECS Cluster to run the dockerized django app
   fbo-ecs:
     template-url: templates/ecs-cluster.yaml
     parameters:
       SecurityGroup: '|ref|fbo-security-group.SecurityGroupId'
 
+  # ECS Cluster Task. The Abstraction where the container runs
   fbo-task:
     template-url: templates/task.yaml
     parameters:
       Repository: '|ref|fbo-ecr.RepositoryUrl'
       ImageName: '|ref|fbo-ecr.RepositoryName'
 
+  # Security Group to allow traffic to the application running on ECS
   fbo-security-group:
     template-url: templates/sg.yaml

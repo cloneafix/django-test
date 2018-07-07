@@ -1,5 +1,8 @@
 region: eu-central-1
 stacks:
+
+   # The CI/CD Pipeline to build and deploy
+   # atm. the service on ECS needed to be created manually
    fbo-pipeline:
       template-url: templates/pipeline.yaml
       parameters:
@@ -8,5 +11,6 @@ stacks:
         ECSClusterName: '|ref|fbo-ecs.ClusterId'
         ECSServiceName: 'fbo'
 
+   # Docker Repository to push and pull container images 
    fbo-ecr:
       template-url: templates/ecr.yaml
