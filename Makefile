@@ -3,6 +3,9 @@ APP_NAME := fbo
 
 VERSION=$(shell cat version.txt)
 
+test: ##=> Run tests
+	cd mysite; python manage.py test polls
+
 # DOCKER TASKS
 
 build: ##=> Build the container
@@ -30,10 +33,6 @@ tag-latest: ## Generate container `{version}` tag
 tag-version: ## Generate container `latest` tag
 	@echo 'create tag $(VERSION)'
 	docker tag $(APP_NAME) $(DOCKER_REPO)/$(APP_NAME):$(VERSION)
-
-
-test: ##=> Run tests
-	cd mysite; python manage.py test polls
 
 
 # HELPERS
