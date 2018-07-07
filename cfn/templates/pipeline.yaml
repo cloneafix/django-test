@@ -256,6 +256,8 @@ Resources:
                       Service:
                         - codebuild.amazonaws.com
             Path: /
+            ManagedPolicyArns:
+              - 'arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser'
             Policies:
                 - PolicyName: CodeBuildLogs
                   PolicyDocument:
@@ -290,15 +292,6 @@ Resources:
                         Effect: Allow
                         Action: 'ssm:GetParameters'
                         Resource: '*'
-                - PolicyName: ECRAccess
-                  PolicyDocument:
-                    Version: '2012-10-17'
-                    Statement:
-                      -
-                        Effect: Allow
-                        Action: 'ecr:*'
-                        Resource: !Sub 'arn:aws:ecr:::*'  # needs improvement to access only our ECR
-
 
     CloudFormationExecutionRole:
       Type: AWS::IAM::Role
@@ -350,14 +343,6 @@ Resources:
                         Effect: Allow
                         Action: 's3:*'
                         Resource: !Sub 'arn:aws:s3:::${BuildArtifactsBucket}/*'
-                - PolicyName: ECRAccess
-                  PolicyDocument:
-                    Version: '2012-10-17'
-                    Statement:
-                      -
-                        Effect: Allow
-                        Action: 'ecr:*'
-                        Resource: !Sub 'arn:aws:ecr:::*'  # needs improvement to access only our ECR
                 - PolicyName: CodePipelineCodeBuildAndCloudformationAccess
                   PolicyDocument:
                     Version: '2012-10-17'
