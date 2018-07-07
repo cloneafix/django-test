@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ECS Cluster
+
+Resources:
+  Cluster:
+    Type: "AWS::ECS::Cluster"
+
+Outputs:
+  ClusterName:
+    Value: !Ref Cluster

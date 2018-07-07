@@ -1,0 +1,7 @@
+region: eu-central-1
+stacks:
+  fbo-ecs:
+    template-url: templates/ecs-cluster.yaml
+
+  fbo-task:
+    template-url: templates/task.yaml
