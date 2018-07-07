@@ -267,6 +267,8 @@ Resources:
                       Service:
                         - codepipeline.amazonaws.com
             Path: /
+            ManagedPolicyArns:
+              - 'arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser'
             Policies:
                 - PolicyName: CodePipelineAccess
                   PolicyDocument:
