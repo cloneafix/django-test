@@ -2,6 +2,8 @@ region: eu-central-1
 stacks:
    fbo-pipeline:
       template-url: templates/pipeline.yaml
+      parameters:
+        DockerRepo: '|ref|fbo-ecr.RepositoryUrl'
 
    fbo-ecr:
       template-url: templates/ecr.yaml

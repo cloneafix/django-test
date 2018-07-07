@@ -8,3 +8,5 @@ Resources:
 Outputs:
   RepositoryName:
     Value: !Ref Repo
+  RepositoryUrl:
+    Value: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
