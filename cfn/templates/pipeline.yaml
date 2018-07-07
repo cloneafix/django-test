@@ -349,7 +349,7 @@ Resources:
                       -
                         Effect: Allow
                         Action: 'ecr:*'
-                        Resource: !Sub 'arn:aws:ecr:::*'
+                        Resource: !Sub 'arn:aws:ecr:::*'  # needs improvement to access only our ECR
                 - PolicyName: CodePipelineCodeBuildAndCloudformationAccess
                   PolicyDocument:
                     Version: '2012-10-17'
