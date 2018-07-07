@@ -1,0 +1,4 @@
+region: eu-central-1
+stacks:
+   fbo-pipeline:
+      template-url: templates/pipeline.yaml
