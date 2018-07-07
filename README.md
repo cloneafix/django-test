@@ -71,6 +71,8 @@ aws ssm put-parameter \
 
 **NOTE:** Keep in mind that these Parameters will only be available within the same region you're deploying this Pipeline stack. Also, if these values ever change you will need to [update these parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html) as well as update the "fbo-pipeline" Cloudformation stack.
 
+You could provide these values in the cloudformation deployment as parameters too. But this would be less secure as it might be stored in git or on your local disc (token is sensitive data).
+
 ### Pipeline creation
 
 Run the following AWS CLI command to create the pipeline:
