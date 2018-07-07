@@ -14,7 +14,7 @@ Resources:
               ContainerPort: 8000
               HostPort: 8000
           Memory: 500
-          Image: 142669133412.dkr.ecr.eu-central-1.amazonaws.com/fbo:latest
+          Image: !Sub '${AWS::AccountId}.dkr.ecr.eu-central-1.amazonaws.com/fbo:latest'
           Essential: true
 
 Outputs:
