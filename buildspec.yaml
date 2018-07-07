@@ -21,16 +21,19 @@ phases:
       - apt-get update
       - apt-get install -y rsync
       - pip install --upgrade pip
+      - pip install -r requirements.txt
 
   pre_build:
     commands:
       - echo "[Pre-Build phase]"
       - echo "[+] Running tests..."
+      - make test
 
   build:
     commands:
       - echo "[Build phase]"
-      - echo "[+] doing nothing here ... test dummy"
+      - echo "[+] doing nothing here ..."
+      - make build
 
   post_build:
     commands:
